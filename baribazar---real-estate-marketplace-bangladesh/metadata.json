@@ -1,0 +1,6 @@
+{
+  "name": "BariBazar - Real Estate Marketplace Bangladesh",
+  "description": "বাংলাদেশের নির্ভরযোগ্য রিয়েল এস্টেট প্ল্যাটফর্ম - বাড়ি, ফ্ল্যাট, জমি ও বাণিজ্যিক প্রপার্টি ক্রয়-বিক্রয় এবং ভাড়ার বিশ্বস্ত মাধ্যম।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
