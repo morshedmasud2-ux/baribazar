@@ -448,7 +448,16 @@ const popularAreas = selectedDistrictObj?.upazilas || [];
                   </label>
                   <select
                     value={district}
-                    onChange={(e) => setDistrict(e.target.value)}
+                    onChange={(e) => {
+  const selectedDistrict = e.target.value;
+  setDistrict(selectedDistrict);
+
+  const districtObj = selectedDivisionObj?.districts.find(
+    (d) => d.name === selectedDistrict
+  );
+
+  setArea(districtObj?.upazilas[0]?.name || '');
+}}
                     className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800"
                   >
                     {selectedDivisionObj?.districts.map((d) => (
