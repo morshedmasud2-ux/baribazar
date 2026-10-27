@@ -78,15 +78,22 @@ export const AddPropertyModal: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Seller info
-  const [sellerName, setSellerName] = useState(currentUser?.name || 'Morshed Masud');
-  const [sellerPhone, setSellerPhone] = useState(currentUser?.phone || '+8801711223344');
+  const [sellerName, setSellerName] = useState(currentUser?.name || '');
+  const [sellerPhone, setSellerPhone] = useState(currentUser?.phone || '+880');
   const [sellerWhatsapp, setSellerWhatsapp] = useState(
-    currentUser?.phone?.replace('+', '') || '8801711223344'
+    currentUser?.phone?.replace('+', '') || '880'
   );
   const [sellerRole, setSellerRole] = useState<'Owner' | 'Agent' | 'Developer'>('Owner');
 
-  const selectedDivisionObj = BANGLADESH_DIVISIONS.find((d) => d.name === division);
-  const popularAreas = selectedDivisionObj?.districts[0]?.popularAreas || [];
+const selectedDivisionObj = BANGLADESH_DIVISIONS.find(
+  (d) => d.name === division
+);
+
+const selectedDistrictObj = selectedDivisionObj?.districts.find(
+  (d) => d.name === district
+);
+
+const popularAreas = selectedDistrictObj?.upazilas || [];
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
