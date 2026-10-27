@@ -417,14 +417,21 @@ const popularAreas = selectedDistrictObj?.upazilas || [];
                   </label>
                   <select
                     value={division}
-                    onChange={(e) => {
-                      setDivision(e.target.value);
-                      const divObj = BANGLADESH_DIVISIONS.find((d) => d.name === e.target.value);
-                      if (divObj) {
-                        setDistrict(divObj.districts[0].name);
-                        setArea(divObj.districts[0].popularAreas[0]?.name || '');
-                      }
-                    }}
+                   onChange={(e) => {
+  const divObj = BANGLADESH_DIVISIONS.find(
+    (d) => d.name === e.target.value
+  );
+
+  setDivision(e.target.value);
+
+  if (divObj) {
+    const firstDistrict = divObj.districts[0];
+
+    setDistrict(firstDistrict?.name || '');
+    setArea(firstDistrict?.upazilas[0]?.name || '');
+  }
+}}
+                      
                     className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800"
                   >
                     {BANGLADESH_DIVISIONS.map((d) => (
