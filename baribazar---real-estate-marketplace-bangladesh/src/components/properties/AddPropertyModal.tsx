@@ -172,7 +172,7 @@ const popularAreas = selectedDistrictObj?.upazilas || [];
           division,
           divisionBn: selectedDivisionObj?.nameBn || division,
           district,
-          districtBn: selectedDivisionObj?.districts[0]?.nameBn || district,
+          districtBn: selectedDistrictObj?.nameBn || district,
           area,
           areaBn: selectedAreaObj?.nameBn || area,
           address: address || `${area}, ${division}`,
